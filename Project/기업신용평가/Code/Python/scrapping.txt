@@ -1,0 +1,31 @@
+from urllib.request import urlopen
+from urllib.request import Request
+from bs4 import BeautifulSoup
+import re
+from datetime import datetime
+
+
+url="http://companyinfo.stock.naver.com/v1/company/ajax/cF1001.aspx?cmp_cd=005930&fin_typ=0&freq_typ=Q"
+
+agent = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0;"
+req=Request(url)
+req.add_header("asd",agent)
+response =urlopen(req)
+thepage= response.read()
+
+bsObj = BeautifulSoup(thepage,'html.parser')
+
+
+
+header=bsObj.findAll("td")
+list=[]
+for entry in header:
+    list.append(entry.get_text())
+    print(entry.get_text())
+
+
+fd=open("/home/supervoli9913/data",'w')
+for i in range(0,len(list)):
+    print(list[i],end=" ",file=fd)
+    if (i+1)%8 == 0:
+        print(file=fd)

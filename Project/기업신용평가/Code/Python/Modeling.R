@@ -1,0 +1,147 @@
+install.packages('randomForest')
+library(randomForest)
+
+##read data
+dat2<-read.csv("semifinal.csv",stringsAsFactor=F, fileEncoding = 'cp949')
+dat2$EBITDA <- gsub(',' ,'',dat2$EBITDA)
+dat2$EBITDA<-as.numeric(dat2$EBITDA)
+dat2$매입채무회전율<-as.numeric(dat2$매입채무회전율)
+
+##log transformation
+dat2$매출액<-log(dat2$매출액)
+dat2$자산총계<-log(dat2$자산총계)
+
+
+
+##8 catergory response 
+dat2$compCredit2[dat2$compCredit=="AAA+"]<-8
+dat2$compCredit2[dat2$compCredit=="AA0"]<-7
+dat2$compCredit2[dat2$compCredit=="AA+"]<-7
+dat2$compCredit2[dat2$compCredit=="AA-"]<-7
+
+dat2$compCredit2[dat2$compCredit=="A0"]<-6
+dat2$compCredit2[dat2$compCredit=="A+"]<-6
+dat2$compCredit2[dat2$compCredit=="A-"]<-6
+
+
+dat2$compCredit2[dat2$compCredit=="BBB+"]<-5
+dat2$compCredit2[dat2$compCredit=="BBB0"]<-5
+dat2$compCredit2[dat2$compCredit=="BBB-"]<-4
+
+
+dat2$compCredit2[dat2$compCredit=="BB+"]<-3
+dat2$compCredit2[dat2$compCredit=="BB0"]<-2
+dat2$compCredit2[dat2$compCredit=="BB-"]<-2
+dat2$compCredit2[dat2$compCredit=="B+"]<-1
+dat2$compCredit2[dat2$compCredit=="B0"]<-1
+dat2$compCredit2[dat2$compCredit=="B-"]<-1
+
+#4 category response
+dat2$cre[dat2$compCredit=="AAA+"]<-4
+dat2$cre[dat2$compCredit=="AA0"]<-4
+dat2$cre[dat2$compCredit=="AA+"]<-4
+dat2$cre[dat2$compCredit=="AA-"]<-4
+
+dat2$cre[dat2$compCredit=="A0"]<-3
+dat2$cre[dat2$compCredit=="A+"]<-3
+dat2$cre[dat2$compCredit=="A-"]<-3
+
+
+dat2$cre[dat2$compCredit=="BBB+"]<-2
+dat2$cre[dat2$compCredit=="BBB0"]<-2
+dat2$cre[dat2$compCredit=="BBB-"]<-2
+
+
+dat2$cre[dat2$compCredit=="BB+"]<-1
+dat2$cre[dat2$compCredit=="BB0"]<-1
+dat2$cre[dat2$compCredit=="BB-"]<-1
+dat2$cre[dat2$compCredit=="B+"]<-1
+dat2$cre[dat2$compCredit=="B0"]<-1
+dat2$cre[dat2$compCredit=="B-"]<-1
+
+#binomial category
+
+dat2$credit[dat2$compCredit=="AAA+"]<-0
+dat2$credit[dat2$compCredit=="AA0"]<-0
+dat2$credit[dat2$compCredit=="AA+"]<-0
+dat2$credit[dat2$compCredit=="AA-"]<-0
+
+dat2$credit[dat2$compCredit=="A0"]<-0
+dat2$credit[dat2$compCredit=="A+"]<-0
+dat2$credit[dat2$compCredit=="A-"]<-0
+
+
+dat2$credit[dat2$compCredit=="BBB+"]<-0
+dat2$credit[dat2$compCredit=="BBB0"]<-0
+dat2$credit[dat2$compCredit=="BBB-"]<-0
+
+
+dat2$credit[dat2$compCredit=="BB+"]<-1
+dat2$credit[dat2$compCredit=="BB0"]<-1
+dat2$credit[dat2$compCredit=="BB-"]<-1
+dat2$credit[dat2$compCredit=="B+"]<-1
+dat2$credit[dat2$compCredit=="B0"]<-1
+dat2$credit[dat2$compCredit=="B-"]<-1
+
+
+
+
+install.packages("randomForest")
+colnames(dat2)
+
+library(randomForest)
+##비재무+재무
+ranfit3<-randomForest(factor(compCredit2)~해외.사업+상장+sa+url+매출액+기업순이익률+매출액순이익률+유보액.납입자본+적립금비율+유보액.대.총자산+차입금의존도...+금융기관차입금.부채+이익잉여금.유동자산+자본금순이익률+총자본경상이익률,data=dat2,mtry=4)
+ranfit3
+ranfit4<-randomForest(factor(compCredit2)~해외.사업+상장+sa+url,data=dat2)
+ranfit4
+
+
+
+
+##4category RF
+##61%performance
+
+ranfit_4category<-randomForest(factor(cre)~매출액+자산총계+매출액증가율+기업순이익률+매출액순이익률+총자본순이익률+수지비율+유보액.납입자본+적립금비율+금융비용.대.매출액+금융비용.대.총부채+순금융비용.대.매출액+유보액.대.총자산+고정비율+부채총계.대.매출액+비유동부채.대.총자산+유동부채.대.총자산+유동부채비율+자기자본비율+재고자산.대.유동자산+차입금의존도...+총자산회전율+영업자산회전율+자본금회전율+EBITDA+KED현금비율+현금성당좌자산.유동자산+현금성당좌자산.자산+금융기관차입금.부채+부채.유형자산+이익잉여금.유동자산+자본금순이익률+X.부채총계.이익잉여금..유형자산+총자본경상이익률,data=dat2)
+ranfit_4category
+
+
+
+##2 model with overseas business with 8category RF
+##no change when disstribute overseas business
+dat2_1<-dat2[dat2$해외.사업=="유",]
+dat2_2<-dat2[dat2$해외.사업!="유",]
+
+
+
+##57%performance
+ranfit_8_T<-randomForest(factor(compCredit2)~매출액+자산총계+매출액증가율+기업순이익률+
+                           매출액순이익률+총자본순이익률+수지비율+유보액.납입자본+적립금비율+
+                           금융비용.대.매출액+금융비용.대.총부채+순금융비용.대.매출액+유보액.대.총자산+
+                           고정비율+부채총계.대.매출액+비유동부채.대.총자산+유동부채.대.총자산+유동부채비율
+                         +자기자본비율+재고자산.대.유동자산+차입금의존도...+총자산회전율+영업자산회전율
+                         +자본금회전율+EBITDA+KED현금비율+현금성당좌자산.유동자산+현금성당좌자산.자산
+                         +금융기관차입금.부채+부채.유형자산+이익잉여금.유동자산+자본금순이익률
+                         +X.부채총계.이익잉여금..유형자산+총자본경상이익률,data=dat2)
+
+ranfit_8_T
+
+
+
+ranfit_8_F
+
+varImpPlot(ranfit_8_T)
+
+
+
+
+
+
+
+
+
+
+##logistic 
+glmfit<-glm(credit~매출액+자산총계+매출액증가율+기업순이익률+매출액순이익률+총자본순이익률+수지비율+유보액.납입자본+적립금비율+금융비용.대.매출액+금융비용.대.총부채+순금융비용.대.매출액+유보액.대.총자산+고정비율+부채총계.대.매출액+비유동부채.대.총자산+유동부채.대.총자산+유동부채비율+자기자본비율+재고자산.대.유동자산+차입금의존도...+총자산회전율+영업자산회전율+자본금회전율+EBITDA+KED현금비율+현금성당좌자산.유동자산+현금성당좌자산.자산+금융기관차입금.부채+부채.유형자산+이익잉여금.유동자산+자본금순이익률+X.부채총계.이익잉여금..유형자산+총자본경상이익률,data=dat2_1)
+step<-step(glmfit,direction='both',trace=F)
+summary(step)
