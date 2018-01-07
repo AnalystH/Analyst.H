@@ -17,6 +17,11 @@
 - 2015.11.06 ~ 2016.12.23 : 한국은행 경제기본과정 수료
 - 2016.12.24 ~ 2017.12.22 : 한국은행 경제전문과정 수료
 
+
+<img src="./picture/basic.png" width="300">                     <img src="./picture/professional.png" width="300">
+
+
+
 -------
 ### Introduction
 

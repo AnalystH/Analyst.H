@@ -23,15 +23,12 @@ iris.testLabels <- iris[ifelse(ind%%5==0,ind,0), 5]
 ############# 패키지 없이 ##################
 # 
 guess.knn <- function(x, train, trainlabels, k){
-  # Calculate the euclidean distance from x to all training set observations:
   xmatrix <- matrix(as.numeric(x), nrow=nrow(train), ncol=length(x), byrow=T)
   xmatrix <- (as.matrix(train)-xmatrix)^2
   diffs <- sqrt(rowSums(xmatrix))
-  # Sort the category labels by their euclidean distances:
   diffs <- data.frame(dist=diffs,label=trainlabels)
   diffs <- (diffs[order(diffs$dist),])
   diffs <- diffs[1:k,]
-  # Find the most commonly-matched category among the top k results:
   guess <- names(sort(-table(diffs$label)))[1]
   return(guess)
 }
