@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../get_coin/get_coin/.idea/get_coin.iml" filepath="$PROJECT_DIR$/../../get_coin/get_coin/.idea/get_coin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/get_coin_price_history.iml" filepath="$PROJECT_DIR$/.idea/get_coin_price_history.iml" />
+    </modules>
+  </component>
+</project>
