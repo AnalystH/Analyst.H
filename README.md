@@ -18,7 +18,7 @@
 | 2018.07 ~ 2018.09       | Home Credit Default Risk                | Kaggle           | 동메달    |
 | 2018.07 ~ 2018.08       | Santander Value Prediction Challenge    | Kaggle           | 동메달    |
 
-* Kaggle에서 상위 3.6% 등수 (2018.10.04 기준)
+##### Kaggle에서 상위 3.6% 등수 (2018.10.04 기준)
 
 ### 활동내역
 
