@@ -3,7 +3,7 @@
 - 전공 : 통계학, 금융공학
 - 관심분야 : 머신러닝(딥러닝), 수학, 통계, 금융, 철학
 - 프로그래밍 언어 : __R, Python, SQL, Shell Script__
-- 블로그 : <http://analysts.tistory.com/>
+- __세계적인 데이터 분석 플랫폼인 Kaggle에서 상위 3.6% 등수__
 - 이메일 : actto8290@gmail.com
 - 코멘트 : 질문사항이나 문의가 있을시 이메일로 보내주시면 감사하겠습니다.
 
@@ -14,11 +14,9 @@
 | 기간                    | 프로젝트명                              | 수상기관         | 등수      |
 | ----------------------- | --------------------------------------- | ---------------- | --------- |
 | 2017.06.26 ~ 2017.09.22 | 진우(眞友) - 합리적인 투자 솔루션       | 한국데이터진흥원 | 대상(1등) |
-| 2017.09 ~ 2017.12       | Titanic: Machine Learning from Disaster | Kaggle           | 상위 3%   |
+| 2017.09 ~ 2017.12       | Titanic: Machine Learning from Disaster | Kaggle           | 상위 2%   |
 | 2018.07 ~ 2018.09       | Home Credit Default Risk                | Kaggle           | 동메달    |
 | 2018.07 ~ 2018.08       | Santander Value Prediction Challenge    | Kaggle           | 동메달    |
-
-##### Kaggle에서 상위 3.6% 등수 (2018.10.04 기준)
 
 ### 활동내역
 
@@ -46,6 +44,6 @@
 - Major : Statistics, Financial Engineering
 - Interested in : Machine Learning(Deep Learning), Statistics, Math, Finance, Philosophy
 - Programming language : __R, Python, SQL, Shell Scrpit__
-- Blog : <http://analysts.tistory.com/>
+- __Ranked Top 3.6% in Kaggle__
 - Email : actto8290@gmail.com
 - Comment : Thanks for email me if you have any question.
