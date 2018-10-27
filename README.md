@@ -11,12 +11,13 @@
 
 ### 수상내역
 
-| 기간                    | 프로젝트명                              | 수상기관         | 등수      |
-| ----------------------- | --------------------------------------- | ---------------- | --------- |
-| 2017.06.26 ~ 2017.09.22 | 진우(眞友) - 합리적인 투자 솔루션       | 한국데이터진흥원 | 대상(1등) |
-| 2017.09 ~ 2017.12       | Titanic: Machine Learning from Disaster | Kaggle           | 상위 2%   |
-| 2018.07 ~ 2018.09       | Home Credit Default Risk                | Kaggle           | 동메달    |
-| 2018.07 ~ 2018.08       | Santander Value Prediction Challenge    | Kaggle           | 동메달    |
+| 기간                    | 프로젝트명                                | 수상기관         | 등수      |
+| ----------------------- | ----------------------------------------- | ---------------- | --------- |
+| 2017.06.26 ~ 2017.09.22 | 진우(眞友) - 합리적인 투자 솔루션         | 한국데이터진흥원 | 대상(1등) |
+| 2017.09 ~ 2017.12       | Titanic: Machine Learning from Disaster   | Kaggle           | 상위 2%   |
+| 2018.07 ~ 2018.09       | Home Credit Default Risk                  | Kaggle           | 동메달    |
+| 2018.07 ~ 2018.08       | Santander Value Prediction Challenge      | Kaggle           | 동메달    |
+| 2018.10 ~ ing           | Google Analytics Customer Revenue Predict | Kaggle           | 상위 4%   |
 
 ### 활동내역
 
